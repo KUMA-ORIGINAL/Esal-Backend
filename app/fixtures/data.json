@@ -1,0 +1,62 @@
+[
+    {
+        "model": "places.category",
+        "pk": 1,
+        "fields": {
+            "name": "Рестораны",
+            "description": "Места для любителей вкусно поесть."
+        }
+    },
+    {
+        "model": "places.category",
+        "pk": 2,
+        "fields": {
+            "name": "Музеи",
+            "description": "Культурные центры и исторические музеи."
+        }
+    },
+    {
+        "model": "places.category",
+        "pk": 3,
+        "fields": {
+            "name": "Парки",
+            "description": "Места для отдыха на природе."
+        }
+    },
+    {
+        "model": "places.place",
+        "pk": 1,
+        "fields": {
+            "name": "Гулистан",
+            "description": "Уютный ресторан с восточной кухней",
+            "photo": "path_to_photo.jpg",
+            "category": 1,
+            "rating": 4.5,
+            "address": "Центральная площадь, Бишкек"
+        }
+    },
+    {
+        "model": "places.place",
+        "pk": 2,
+        "fields": {
+            "name": "Музей изобразительных искусств",
+            "description": "Музей с богатыми коллекциями национального и мирового искусства.",
+            "photo": "path_to_another_photo.jpg",
+            "category": 2,
+            "rating": 5.0,
+            "address": "Абдрахманова, 196, Бишкек"
+        }
+    },
+    {
+        "model": "places.place",
+        "pk": 3,
+        "fields": {
+            "name": "Парк Панфилова",
+            "description": "Зеленый оазис в сердце города с детскими площадками и спортивными зонами.",
+            "photo": "path_to_third_photo.jpg",
+            "category": 3,
+            "rating": 4.8,
+            "address": "ул. Токтогула, Бишкек"
+        }
+    }
+]
