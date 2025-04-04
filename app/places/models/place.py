@@ -6,7 +6,7 @@ class Place(models.Model):
     description = models.TextField('описание')
     photo = models.ImageField('фотография', upload_to='place_photos/')
     rating = models.FloatField('рейтинг', default=0.0)
-    address = models.CharField('адрес', max_length=255)
+    address = models.TextField('адрес')
     social_links = models.JSONField('ссылки на социальные сети', blank=True, null=True)
     view_count = models.PositiveIntegerField('Количество просмотров', default=0)
     like_count = models.PositiveIntegerField('Количество лайков', default=0)
