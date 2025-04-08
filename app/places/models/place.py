@@ -7,7 +7,11 @@ class Place(models.Model):
     photo = models.ImageField('фотография', upload_to='place_photos/')
     rating = models.FloatField('рейтинг', default=0.0)
     address = models.TextField('адрес')
-    social_links = models.JSONField('ссылки на социальные сети', blank=True, null=True)
+    facebook = models.URLField('Facebook', blank=True, null=True)
+    instagram = models.URLField('Instagram', blank=True, null=True)
+    twitter = models.URLField('Twitter', blank=True, null=True)
+    youtube = models.URLField('YouTube', blank=True, null=True)
+    tiktok = models.URLField('TikTok', blank=True, null=True)
     view_count = models.PositiveIntegerField('Количество просмотров', default=0)
     like_count = models.PositiveIntegerField('Количество лайков', default=0)
 

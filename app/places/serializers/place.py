@@ -10,6 +10,7 @@ class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
         fields = [
-            'id', 'name', 'description', 'photo', 'category',
-            'rating', 'address', 'social_links', 'view_count', 'like_count',
+            'id', 'name', 'description', 'photo', 'category','rating', 'address',
+            'facebook', 'instagram', 'twitter', 'youtube', 'tiktok',
+            'view_count', 'like_count', 'likes'
         ]
