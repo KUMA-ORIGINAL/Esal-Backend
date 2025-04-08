@@ -14,3 +14,14 @@ class PlaceSerializer(serializers.ModelSerializer):
             'facebook', 'instagram', 'twitter', 'youtube', 'tiktok',
             'view_count', 'like_count', 'likes'
         ]
+
+
+class PlaceListSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+
+    class Meta:
+        model = Place
+        fields = [
+            'id', 'name', 'description', 'photo', 'category', 'rating',
+            'view_count', 'like_count', 'likes'
+        ]

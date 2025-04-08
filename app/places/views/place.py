@@ -4,14 +4,17 @@ from rest_framework import viewsets, mixins, permissions, status
 from rest_framework.response import Response
 
 from ..models import Place
-from ..serializers import PlaceSerializer
+from ..serializers import PlaceSerializer, PlaceListSerializer
 
 
 @extend_schema(tags=['Place'])
-class PlaceViewSet(viewsets.GenericViewSet,
-                   mixins.ListModelMixin,):
+class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Place.objects.all()
-    serializer_class = PlaceSerializer
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return PlaceListSerializer
+        return PlaceSerializer
 
 
 @extend_schema(tags=['Likes'])

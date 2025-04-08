@@ -2,9 +2,13 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from djoser.views import UserViewSet
 
-from .views import MeViewSet
+from .views import MeViewSet, FavoritePlacesViewSet
 
 router = DefaultRouter()
+router.register(r'users/favorite',
+                FavoritePlacesViewSet,
+                basename='favorite-places')
+
 
 urlpatterns = [
     path('', include(router.urls)),

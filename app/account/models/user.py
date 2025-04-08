@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from imagekit.models import ProcessedImageField
 from pilkit.processors import ResizeToFill
 
+from places.models import Place
 
 
 class UserManager(BaseUserManager):
@@ -46,6 +47,7 @@ class User(AbstractUser):
                                 format='JPEG',
                                 options={'quality': 60},
                                 blank=True)
+    favorite_places = models.ManyToManyField(Place, blank=True)
 
     username = None
     USERNAME_FIELD = "email"
