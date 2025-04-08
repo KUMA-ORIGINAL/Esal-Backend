@@ -9,7 +9,7 @@ from ..models import Place
 
 @admin.register(Place)
 class PlaceAdmin(UnfoldModelAdmin):
-    list_display = ['name', 'category', 'rating', 'address', 'display_photo']
+    list_display = ['name', 'category', 'rating', 'display_photo']
     list_filter = ['category', 'rating']
     search_fields = ['name', 'description']
 
