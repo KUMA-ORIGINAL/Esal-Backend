@@ -7,6 +7,7 @@ class Review(models.Model):
     text = models.TextField('текст')
     rating = models.IntegerField('оценка')
     created_at = models.DateTimeField('дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField('дата обновления', auto_now_add=True)
 
     class Meta:
         verbose_name = 'отзыв'

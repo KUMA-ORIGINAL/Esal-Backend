@@ -6,7 +6,7 @@ from .views import PlaceViewSet, CategoryViewSet, ReviewViewSet, PlaceLikeViewSe
 router = DefaultRouter()
 router.register(r'places', PlaceViewSet)
 router.register(r'categories', CategoryViewSet)
-router.register(r'reviews', ReviewViewSet)
+router.register(r"places/(?P<place_id>\d+)/reviews", ReviewViewSet)
 router.register(r'like', PlaceLikeViewSet, basename='article-like')
 router.register(r'update-view', ViewCountUpdateViewSet, basename='update-view')
 
