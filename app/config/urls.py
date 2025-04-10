@@ -28,6 +28,7 @@ urlpatterns = [
 
     path('api/', include('account.urls')),
     path('api/', include('places.urls')),
+    path('api/', include('events.urls')),
 ]
 
 if settings.DEBUG:

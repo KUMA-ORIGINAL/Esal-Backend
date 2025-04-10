@@ -73,7 +73,8 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'account',
-    'places'
+    'places',
+    'events'
 ]
 
 MIDDLEWARE = [
@@ -303,6 +304,11 @@ UNFOLD = {
                         "title": _("Отзывы"),
                         "icon": "comment",
                         "link": reverse_lazy("admin:places_review_changelist"),
+                    },
+                    {
+                        "title": _("События"),
+                        "icon": "event",
+                        "link": reverse_lazy("admin:events_event_changelist"),
                     },
                 ],
             },
