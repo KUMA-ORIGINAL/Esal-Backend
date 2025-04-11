@@ -10,7 +10,7 @@ class UserReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'photo')
+        fields = ('id', 'first_name', 'last_name', 'photo')
 
 
 class ReviewReadSerializer(serializers.ModelSerializer):

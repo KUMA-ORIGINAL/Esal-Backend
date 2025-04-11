@@ -10,7 +10,6 @@ router.register(r"places/(?P<place_id>\d+)/reviews", ReviewViewSet)
 router.register(r'like', PlaceLikeViewSet, basename='article-like')
 router.register(r'update-view', ViewCountUpdateViewSet, basename='update-view')
 
-
 urlpatterns = [
     path('', include(router.urls)),
 ]
