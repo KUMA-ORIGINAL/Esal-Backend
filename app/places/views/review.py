@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from rest_framework import viewsets, mixins, permissions
 
@@ -46,3 +47,21 @@ class ReviewViewSet(viewsets.ModelViewSet):
         else:
             self.permission_classes = (permissions.AllowAny,)
         return super().get_permissions()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+        self._update_place_rating(serializer.instance.place)
+
+    def perform_update(self, serializer):
+        serializer.save()
+        self._update_place_rating(serializer.instance.place)
+
+    def perform_destroy(self, instance):
+        place = instance.place
+        instance.delete()
+        self._update_place_rating(place)
+
+    def _update_place_rating(self, place):
+        avg_rating = place.reviews.aggregate(avg=Avg("rating"))["avg"] or 0
+        place.rating = round(avg_rating, 2)
+        place.save(update_fields=["rating"])
