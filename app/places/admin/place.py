@@ -14,8 +14,12 @@ class PlaceImageInline(StackedInline):
 
     def preview(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" height="100" style="border-radius: 8px;" />')
-        return ''
+            return mark_safe(
+                f'''
+                    <img src="{obj.image.url}" style="height: 150px; border-radius: 8px; object-fit: cover;" />
+                '''
+            )
+        return mark_safe('<span style="color: #999;">Нет изображения</span>')
     preview.short_description = 'Превью'
 
 
