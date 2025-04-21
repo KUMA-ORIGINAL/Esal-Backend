@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from unfold.admin import ModelAdmin as UnfoldModelAdmin, TabularInline
+from unfold.admin import ModelAdmin as UnfoldModelAdmin, StackedInline
 from unfold.decorators import display
 
 from ..models import Place, PlaceImage
 
-class PlaceImageInline(TabularInline):
+
+class PlaceImageInline(StackedInline):
     model = PlaceImage
     extra = 1
     readonly_fields = ['preview']
