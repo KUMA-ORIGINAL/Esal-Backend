@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from drf_spectacular.utils import extend_schema, extend_schema_view
-from rest_framework import viewsets, mixins, permissions, status
+from rest_framework import viewsets, mixins, permissions, status, filters
 from rest_framework.response import Response
 
 from ..models import Place
@@ -10,11 +10,14 @@ from ..serializers import PlaceSerializer, PlaceListSerializer
 @extend_schema(tags=['Place'])
 class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Place.objects.all()
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['rating', 'like_count', 'view_count']
+    ordering = ['-rating']
 
     def get_serializer_class(self):
-        if self.action == 'list':
-            return PlaceListSerializer
-        return PlaceSerializer
+            if self.action == 'list':
+                return PlaceListSerializer
+            return PlaceSerializer
 
 
 @extend_schema(tags=['Likes'])
