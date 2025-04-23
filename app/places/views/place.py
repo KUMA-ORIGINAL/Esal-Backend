@@ -15,9 +15,9 @@ class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
     ordering = ['-rating']
 
     def get_serializer_class(self):
-            if self.action == 'list':
-                return PlaceListSerializer
-            return PlaceSerializer
+        if self.action == 'list':
+            return PlaceListSerializer
+        return PlaceSerializer
 
 
 @extend_schema(tags=['Likes'])
